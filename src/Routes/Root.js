@@ -1,8 +1,10 @@
+import BookForm from '../components/BookForm';
+
 function Root() {
   return (
     <>
       <div>this is home</div>
-      <div>also known as root</div>
+      <BookForm />
     </>
   );
 }
