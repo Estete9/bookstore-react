@@ -1,9 +1,10 @@
 import BookForm from '../components/BookForm';
+import BookList from '../components/BookList';
 
 function Root() {
   return (
     <>
-      <div>this is home</div>
+      <BookList />
       <BookForm />
     </>
   );
