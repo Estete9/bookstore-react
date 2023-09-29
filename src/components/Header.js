@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styles from '../styles/header.module.css';
 
 function Header() {
@@ -12,9 +13,9 @@ function Header() {
         Bookstore CMS
       </a>
       <ul>
-        {links.map((navItem) => (
-          <li key={navItem.text.toLowerCase()} className={styles.navbarItem}>
-            {navItem.text}
+        {links.map((link) => (
+          <li key={link.text.toLowerCase()} className={styles.navbarItem}>
+            <NavLink to={link.path}>{link.text}</NavLink>
           </li>
         ))}
       </ul>
