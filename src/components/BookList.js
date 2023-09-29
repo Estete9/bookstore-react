@@ -1,22 +1,25 @@
 import { useState } from 'react';
 import styles from '../styles/bookList.module.css';
+import Book from './Book';
 
 function BookList() {
   const [booksListState, setBooksListState] = useState([
-    { title: 'book 1', author: 'author 1' },
-    { title: 'book 2', author: 'author 2' },
+    { id: 0, title: 'book 1', author: 'author 1' },
   ]);
 
   return (
     <div className={styles.bookList}>
       <ul>
         {booksListState.map((book) => (
-          <li key={book.title} className={styles.bookItem}>
-            <div>{`this is a book item ${book.title} by ${book.author}`}</div>
-            <button onClick={setBooksListState} type="button">
-              DELETE
-            </button>
-          </li>
+          <Book
+            key={book.title}
+            title={book.title}
+            author={book.author}
+            removeBook={() => {
+              // TODO change this to remove correctly
+              setBooksListState();
+            }}
+          />
         ))}
       </ul>
     </div>
