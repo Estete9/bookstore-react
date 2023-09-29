@@ -7,6 +7,7 @@ import {
 import Home from './Routes/Home';
 import CategoriesScreen from './Routes/CategoriesScreen';
 import Header from './components/Header';
+import './styles/app.css';
 
 function Layout() {
   return <Outlet />;
