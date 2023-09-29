@@ -12,14 +12,14 @@ function Header() {
       <a className={styles.logo} href="/">
         Bookstore CMS
       </a>
-      <ul>
+      <ul className={styles.navbar}>
         {links.map((link) => (
           <li key={link.text.toLowerCase()} className={styles.navbarItem}>
             <NavLink to={link.path}>{link.text}</NavLink>
           </li>
         ))}
       </ul>
-      <a href="/">profile</a>
+      <a className={styles.profile} href="/">profile</a>
     </div>
   );
 }

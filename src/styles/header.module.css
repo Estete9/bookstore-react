@@ -1,3 +1,24 @@
 .header {
   display: flex;
+  align-items: center;
+}
+
+.profile {
+  margin-left: auto;
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  gap: 30px;
+  margin-left: 100px;
+}
+
+.navbarItem > * {
+  color: #525252;
+}
+
+.header * {
+  text-decoration: none;
 }

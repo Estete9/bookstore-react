@@ -5,6 +5,7 @@ function Root() {
   return (
     <>
       <BookList />
+      <div className="formSeparator" />
       <BookForm />
     </>
   );
