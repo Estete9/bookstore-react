@@ -88,8 +88,8 @@ Make sure eslint-config-airbnb is installed or install with:
 
 ### Usage
 
-#### Live Demo
-- Run the script `npm start` to see a live version of the project
+#### How to Run it
+- Run the script `npm start` to see a working version of the project
 
 
 ### Run tests
