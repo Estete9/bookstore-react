@@ -42,7 +42,7 @@ function BookForm() {
       <button
         className={styles.addBookBtn}
         type="button"
-        onClick={() => handleAddBook()}
+        onClick={handleAddBook}
       >
         ADD BOOK
       </button>
