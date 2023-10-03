@@ -1,0 +1,14 @@
+.formWrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.bookTitleInput {
+  flex: 2;
+}
+
+.bookAuthorInput {
+  flex: 1;
+}
