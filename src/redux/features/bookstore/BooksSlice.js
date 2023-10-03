@@ -7,9 +7,20 @@ const initialState = {
 const BooksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {},
+  reducers: {
+    addBook: (store, action) => {
+      const { title, author } = action.payload;
+      const newBook = {
+        title,
+        author,
+      };
+      store.books.push(newBook);
+    },
+    removeBook: (store) => {
+      console.log(store.books);
+    },
+  },
 });
 
-console.log(BooksSlice);
-
+export const { addBook, removeBook } = BooksSlice.actions;
 export default BooksSlice.reducer;
