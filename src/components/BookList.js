@@ -24,7 +24,7 @@ function BookList() {
         {books.map((book) => (
           <Book
             key={uuidv4()}
-            id={uuidv4}
+            id={book.id}
             title={book.title}
             author={book.author}
           />

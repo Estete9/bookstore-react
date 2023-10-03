@@ -18,7 +18,6 @@ const BooksSlice = createSlice({
       store.books.push(newBook);
     },
     removeBook: (store, action) => {
-      console.log(action);
       const id = action.payload;
       store.books = store.books.filter((book) => book.id !== id);
     },
