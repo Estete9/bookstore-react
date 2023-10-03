@@ -9,15 +9,18 @@ const BooksSlice = createSlice({
   initialState,
   reducers: {
     addBook: (store, action) => {
-      const { title, author } = action.payload;
+      const { id, title, author } = action.payload;
       const newBook = {
+        id,
         title,
         author,
       };
       store.books.push(newBook);
     },
-    removeBook: (store) => {
-      console.log(store.books);
+    removeBook: (store, action) => {
+      console.log(action);
+      const id = action.payload;
+      store.books = store.books.filter((book) => book.id !== id);
     },
   },
 });

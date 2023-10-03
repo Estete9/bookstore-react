@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles/bookList.module.css';
 import Book from './Book';
 
@@ -22,12 +23,10 @@ function BookList() {
       <ul>
         {books.map((book) => (
           <Book
-            key={book.title}
+            key={uuidv4()}
+            id={uuidv4}
             title={book.title}
             author={book.author}
-            removeBook={() => {
-              // TODO change this to remove correctly
-            }}
           />
         ))}
       </ul>

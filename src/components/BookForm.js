@@ -1,18 +1,27 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../redux/features/bookstore/BooksSlice';
 import styles from '../styles/bookForm.module.css';
 
 function BookForm() {
   const dispatch = useDispatch();
   const [newBook, setNewBook] = useState({
+    id: '',
     title: '',
     author: '',
   });
 
   const handleAddBook = () => {
-    dispatch(addBook(newBook));
-    setNewBook({ title: '', author: '' });
+    const newId = uuidv4();
+    const bookWithId = {
+      id: newId,
+      title: newBook.title,
+      author: newBook.author,
+    };
+
+    dispatch(addBook(bookWithId));
+    setNewBook({ id: '', title: '', author: '' });
   };
 
   return (
