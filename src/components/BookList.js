@@ -1,23 +1,32 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 import styles from '../styles/bookList.module.css';
 import Book from './Book';
 
 function BookList() {
-  const [booksListState, setBooksListState] = useState([
-    { id: 0, title: 'book 1', author: 'author 1' },
-  ]);
+  const { books } = useSelector((store) => store.books);
+
+  if (!books.length) {
+    return (
+      <section className={styles.bookList}>
+        {/* cart header */}
+        <header>
+          <h2>your bookstore</h2>
+          <h4 className={styles.emptyList}>is currently empty</h4>
+        </header>
+      </section>
+    );
+  }
 
   return (
     <div className={styles.bookList}>
       <ul>
-        {booksListState.map((book) => (
+        {books.map((book) => (
           <Book
             key={book.title}
             title={book.title}
             author={book.author}
             removeBook={() => {
               // TODO change this to remove correctly
-              setBooksListState();
             }}
           />
         ))}
