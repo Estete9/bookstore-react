@@ -25,22 +25,22 @@ function BookForm() {
   };
 
   return (
-    <div>
+    <div className={styles.formWrapper}>
       <h3>ADD NEW BOOK</h3>
       <input
-        style={styles.bookTitleInput}
+        className={styles.bookTitleInput}
         placeholder="Book title..."
         value={newBook.title}
         onChange={(e) => setNewBook({ ...newBook, title: e.target.value })}
       />
       <input
-        style={styles.bookAuthorInput}
+        className={styles.bookAuthorInput}
         placeholder="Book author..."
         value={newBook.author}
         onChange={(e) => setNewBook({ ...newBook, author: e.target.value })}
       />
       <button
-        style={styles.addBookBtn}
+        className={styles.addBookBtn}
         type="button"
         onClick={() => handleAddBook()}
       >
