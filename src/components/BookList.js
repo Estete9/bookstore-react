@@ -9,7 +9,6 @@ function BookList() {
   if (!books.length) {
     return (
       <section className={styles.bookList}>
-        {/* cart header */}
         <header>
           <h2>your bookstore</h2>
           <h4 className={styles.emptyList}>is currently empty</h4>
