@@ -7,17 +7,11 @@ import { fetchBooks } from '../redux/features/bookstore/BooksSlice';
 
 function BookList() {
   const dispatch = useDispatch();
-  const { books, isLoading, error } = useSelector((store) => {
-    const rawBookData = store.books.books;
-    const bookData = Object.keys(rawBookData).map((key) => {
-      const oldObj = rawBookData[key][0];
-      return {
-        id: key,
-        ...oldObj,
-      };
-    });
-    return { books: bookData, isLoading: store.books.isLoading, error: store.books.error };
-  });
+  const { books, isLoading, error } = useSelector((store) => ({
+    books: store.books.books,
+    isLoading: store.books.isLoading,
+    error: store.books.error,
+  }));
 
   useEffect(() => {
     if (isLoading) {

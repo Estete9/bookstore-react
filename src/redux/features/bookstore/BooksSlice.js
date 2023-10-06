@@ -17,11 +17,38 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejec
     return rejectWithValue(error.response);
   }
 });
+
+export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, { rejectWithValue }) => {
+  const {
+    itemId, title, author, category,
+  } = requestData;
+  try {
+    return await axios.post(
+      url,
+      {
+        itemId,
+        title,
+        author,
+        category,
+      },
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+  } catch (error) {
+    return rejectWithValue(error.response);
+  }
+});
+
 const BooksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
     addBook: (store, action) => {
+      console.log(`store.books: ${store.books}`);
       store.books.push(action.payload);
     },
     removeBook: (store, action) => {
@@ -36,7 +63,17 @@ const BooksSlice = createSlice({
       })
       .addCase(fetchBooks.fulfilled, (store, action) => {
         store.isLoading = false;
-        store.books = action.payload;
+        console.log(`action.payload in fetchBooks.fulfilled: ${JSON.stringify(action.payload)}`);
+        const rawBookData = action.payload;
+        const bookData = Object.keys(rawBookData).map((key) => {
+          const oldObj = rawBookData[key][0];
+          return {
+            id: key,
+            ...oldObj,
+          };
+        });
+        console.log(`processed bookData: ${bookData}`);
+        store.books = bookData;
       })
       .addCase(fetchBooks.rejected, (store, action) => {
         store.isLoading = false;
