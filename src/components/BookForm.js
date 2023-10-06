@@ -1,27 +1,33 @@
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/features/bookstore/BooksSlice';
+import { addBookAPI } from '../redux/features/bookstore/BooksSlice';
 import styles from '../styles/bookForm.module.css';
 
 function BookForm() {
   const dispatch = useDispatch();
   const [newBook, setNewBook] = useState({
-    id: '',
+    item_id: '',
     title: '',
     author: '',
   });
 
   const handleAddBook = () => {
+    console.log('Clicked on ADD BOOK'); // Add this line
     const newId = uuidv4();
     const bookWithId = {
-      id: newId,
+      item_id: newId,
       title: newBook.title,
       author: newBook.author,
+      category: 'Action',
     };
-
-    dispatch(addBook(bookWithId));
-    setNewBook({ id: '', title: '', author: '' });
+    dispatch(addBookAPI(bookWithId));
+    setNewBook({
+      item_id: '',
+      title: '',
+      author: '',
+      category: '',
+    });
   };
 
   return (
@@ -39,11 +45,7 @@ function BookForm() {
         value={newBook.author}
         onChange={(e) => setNewBook({ ...newBook, author: e.target.value })}
       />
-      <button
-        className={styles.addBookBtn}
-        type="button"
-        onClick={() => handleAddBook()}
-      >
+      <button className={styles.addBookBtn} type="button" onClick={handleAddBook}>
         ADD BOOK
       </button>
     </div>

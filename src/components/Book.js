@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import styles from '../styles/book.module.css';
-import { removeBook } from '../redux/features/bookstore/BooksSlice';
+import { removeBookAPI } from '../redux/features/bookstore/BooksSlice';
 
 function Book({ id, title, author }) {
   const dispatch = useDispatch();
@@ -13,11 +13,7 @@ function Book({ id, title, author }) {
         <h5 className={styles.bookGenre}>Action</h5>
         <h3 className={styles.bookTitle}>{title}</h3>
         <h4 className={styles.bookAuthor}>{author}</h4>
-        <button
-          className={styles.removeBookBtn}
-          type="button"
-          onClick={() => dispatch(removeBook(id))}
-        >
+        <button className={styles.removeBookBtn} type="button" onClick={() => dispatch(removeBookAPI(id))}>
           REMOVE
         </button>
       </div>

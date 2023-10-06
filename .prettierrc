@@ -5,10 +5,11 @@
   "tabWidth": 2,
   "semi": true,
   "jsxBracketSameLine": false,
-  "printWidth": 80,
+  "printWidth": 120,
   "arrowParens": "always",
   "object-curly-newline": {
-    "multiline": "always",
+    "multiline": true,
     "consistent": true
-  }
+  },
+  "implicit-arrow-linebreak": "beside"
 }

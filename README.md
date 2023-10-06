@@ -4,7 +4,7 @@
   <img src="./src/logo.svg" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>The Bookstore - React Reading List</b></h3>
+  <h3><b>The Bookstore - Async Redux Reading List</b></h3>
 
 </div>
 
@@ -52,10 +52,12 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Full react app**
+- **Full React app**
+- **Add, Remove, and Fetch async logic**
 - **Use of Modular CSS**
-- **Use of react components, props and state**
+- **Use of react components**
 - **Use of react Router and NavLink**
+- **Use of Redux AsyncThunk for API consumption**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,7 +88,7 @@ Make sure eslint-config-airbnb is installed or install with:
 `npm install eslint-config-airbnb eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-import --save-dev`
 
 
-### Usage
+### Preview
 
 #### How to Run it
 - Run the script `npm start` to see a working version of the project
@@ -126,7 +128,7 @@ Use the scripts:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page UPDATE URL HERE](https://github.com/Estete9/webpack-template/issues).
+Feel free to check the [issues page UPDATE URL HERE](https://github.com/Estete9/https://github.com/Estete9/bookstore-react/issues/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
