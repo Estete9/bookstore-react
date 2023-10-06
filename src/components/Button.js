@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/book.module.css';
 
 function Button({ btnName, onClick }) {
   return (
-    <button type="button" onClick={onClick}>
+    <button className={styles.bookBtn} type="button" onClick={onClick}>
       {btnName}
     </button>
   );

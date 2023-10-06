@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import styles from '../styles/book.module.css';
 import { removeBookAPI } from '../redux/features/bookstore/BooksSlice';
 import Button from './Button';
+import progressImg from '../assets/progressBar.png';
 
 function Book({ id, title, author }) {
   const dispatch = useDispatch();
@@ -14,19 +15,27 @@ function Book({ id, title, author }) {
         <h5 className={styles.bookGenre}>Action</h5>
         <h3 className={styles.bookTitle}>{title}</h3>
         <h4 className={styles.bookAuthor}>{author}</h4>
-        <Button className={styles.removeBookBtn} btnName="DELETE" onClick={() => dispatch(removeBookAPI(id))} />
+        <div className={styles.bookBtnList}>
+          <Button className={styles.removeBookBtn} btnName="Comments" onClick={() => {}} />
+          <div className={styles.formSeparatorVert} />
+          <Button className={styles.removeBookBtn} btnName="Remove" onClick={() => dispatch(removeBookAPI(id))} />
+          <div className={styles.formSeparatorVert} />
+          <Button className={styles.removeBookBtn} btnName="Edit" onClick={() => {}} />
+        </div>
       </div>
       <div className={styles.percentagesSection}>
-        <img className={styles.percentageImg} src="/" alt="book percentage" />
+        <img className={styles.percentageImg} src={progressImg} alt="book percentage" />
         <div>
           <p className={styles.percentage}>64%</p>
           <p className={styles.completed}>Completed</p>
         </div>
       </div>
       <div className={styles.progressSection}>
-        <h3>CURRENT CHAPTER</h3>
-        <h3>CHAPTER 7</h3>
-        <button type="button">UPDATE PROGRESS</button>
+        <h3 className={styles.progressTitle}>CURRENT CHAPTER</h3>
+        <h3 className={styles.chapter}>CHAPTER 7</h3>
+        <button className={styles.progressUpdateBtn} type="button">
+          UPDATE PROGRESS
+        </button>
       </div>
     </div>
   );

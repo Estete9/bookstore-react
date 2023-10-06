@@ -1,3 +1,9 @@
-.bookList {
+.bookListWrapper {
   width: 100%;
+}
+
+.bookList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.938rem;
 }

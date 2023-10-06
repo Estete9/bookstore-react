@@ -2,9 +2,110 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #fff;
+  padding: 15px 20px;
 }
 
 .percentagesSection {
   display: flex;
   align-items: center;
+}
+
+.formSeparatorVert {
+  align-self: center;
+  border-left: 1px solid #e8e8e8;
+  height: 20px;
+}
+
+.bookBtnList {
+  display: flex;
+  gap: 0.938rem;
+  margin-top: 20px;
+}
+
+.bookTitle {
+  color: #121212;
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 1.375rem;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.bookGenre {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.percentageImg {
+  height: 4.23rem;
+}
+
+.bookAuthor,
+.bookBtn {
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #4386bf;
+}
+
+.bookAuthor {
+  margin-top: 5px;
+}
+
+.bookBtn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+}
+
+.percentage {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.completed {
+  opacity: 0.5;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.percentagesSection > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.progressTitle {
+  margin: 0.063rem;
+  opacity: 0.5;
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+}
+
+.chapter {
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0.438rem;
+}
+
+.progressUpdateBtn {
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 0.813rem;
+  color: #fff;
+  font-weight: 300;
+  background-color: #0290ff;
+  border: none;
+  cursor: pointer;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  margin-top: 1.438rem;
+  border-radius: 3px;
 }

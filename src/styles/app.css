@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:700|Roboto+Slab:400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700|Roboto+Slab:400,700');
 
 * {
   margin: 0;
@@ -24,4 +24,9 @@
 
 body {
   background-color: #fafafa;
+  min-height: 100vh;
+}
+
+#root {
+  height: inherit;
 }
