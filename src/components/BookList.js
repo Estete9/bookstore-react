@@ -1,10 +1,37 @@
-import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from '../styles/bookList.module.css';
 import Book from './Book';
+import { fetchBooks } from '../redux/features/bookstore/BooksSlice';
 
 function BookList() {
-  const { books } = useSelector((store) => store.books);
+  const dispatch = useDispatch();
+  const { books, isLoading, error } = useSelector((store) => {
+    const rawBookData = store.books.books;
+    const bookData = Object.keys(rawBookData).map((key) => {
+      const oldObj = rawBookData[key][0];
+      return {
+        id: key,
+        ...oldObj,
+      };
+    });
+    return { books: bookData, isLoading: store.books.isLoading, error: store.books.error };
+  });
+
+  useEffect(() => {
+    if (isLoading) {
+      dispatch(fetchBooks());
+    }
+  }, [dispatch, isLoading]);
+
+  if (isLoading) {
+    return <div>Users loading...</div>;
+  }
+
+  if (error) {
+    return <div>{`We encountered an error: ${JSON.stringify(error)}`}</div>;
+  }
 
   if (!books.length) {
     return (
@@ -21,12 +48,7 @@ function BookList() {
     <div className={styles.bookList}>
       <ul>
         {books.map((book) => (
-          <Book
-            key={uuidv4()}
-            id={book.id}
-            title={book.title}
-            author={book.author}
-          />
+          <Book key={uuidv4()} id={book.id} title={book.title} author={book.author} />
         ))}
       </ul>
     </div>

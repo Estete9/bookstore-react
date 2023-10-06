@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const appId = 'I82EjikItlp9iO3iPf4c';
-const baseUrl = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books`;
+const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books`;
 const initialState = {
   books: [],
   isLoading: true,
@@ -11,7 +11,7 @@ const initialState = {
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${baseUrl}/apps/${appId}/books`);
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response);
