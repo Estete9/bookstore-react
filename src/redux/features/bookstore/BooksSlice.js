@@ -9,6 +9,14 @@ const initialState = {
   error: null,
 };
 
+const cleanData = (rawData) => Object.keys(rawData).map((key) => {
+  const oldObj = rawData[key][0];
+  return {
+    id: key,
+    ...oldObj,
+  };
+});
+
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejectWithValue }) => {
   try {
     const response = await axios.get(url);
@@ -18,15 +26,16 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejec
   }
 });
 
-export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, { rejectWithValue }) => {
+export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, { rejectWithValue, dispatch }) => {
+  console.log('requestData', requestData);
   const {
-    itemId, title, author, category,
+    item_id: itemId, title, author, category,
   } = requestData;
   try {
-    return await axios.post(
+    await axios.post(
       url,
       {
-        itemId,
+        item_id: itemId,
         title,
         author,
         category,
@@ -38,6 +47,8 @@ export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, 
         },
       },
     );
+    dispatch(fetchBooks());
+    return 'Completed';
   } catch (error) {
     return rejectWithValue(error.response);
   }
@@ -47,14 +58,14 @@ const BooksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBook: (store, action) => {
-      console.log(`store.books: ${store.books}`);
-      store.books.push(action.payload);
-    },
-    removeBook: (store, action) => {
-      const id = action.payload;
-      store.books = store.books.filter((book) => book.id !== id);
-    },
+    // addBook: (store, action) => {
+    //   console.log(`store.books: ${store.books}`);
+    //   store.books.push(action.payload);
+    // },
+    // removeBook: (store, action) => {
+    //   const id = action.payload;
+    //   store.books = store.books.filter((book) => book.id !== id);
+    // },
   },
   extraReducers: (builder) => {
     builder
@@ -64,18 +75,23 @@ const BooksSlice = createSlice({
       .addCase(fetchBooks.fulfilled, (store, action) => {
         store.isLoading = false;
         console.log(`action.payload in fetchBooks.fulfilled: ${JSON.stringify(action.payload)}`);
-        const rawBookData = action.payload;
-        const bookData = Object.keys(rawBookData).map((key) => {
-          const oldObj = rawBookData[key][0];
-          return {
-            id: key,
-            ...oldObj,
-          };
-        });
+        const bookData = cleanData(action.payload);
         console.log(`processed bookData: ${bookData}`);
         store.books = bookData;
       })
       .addCase(fetchBooks.rejected, (store, action) => {
+        store.isLoading = false;
+        store.error = action.payload;
+      })
+      .addCase(addBookAPI.pending, (store) => {
+        store.isLoading = true;
+      })
+      .addCase(addBookAPI.fulfilled, (store, action) => {
+        store.isLoading = false;
+        const bookData = cleanData(action.payload);
+        store.books = bookData;
+      })
+      .addCase(addBookAPI.rejected, (store, action) => {
         store.isLoading = false;
         store.error = action.payload;
       });
