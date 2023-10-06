@@ -17,7 +17,7 @@ function BookList() {
     if (isLoading) {
       dispatch(fetchBooks());
     }
-  }, [dispatch, isLoading]);
+  }, [books.length, dispatch, isLoading]);
 
   if (isLoading) {
     return <div>Users loading...</div>;

@@ -2,13 +2,14 @@ import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const appId = 'I82EjikItlp9iO3iPf4c';
-const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books`;
+const url = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${appId}/books/`;
 const initialState = {
   books: [],
   isLoading: true,
   error: null,
 };
 
+// prettier-ignore
 const cleanData = (rawData) => Object.keys(rawData).map((key) => {
   const oldObj = rawData[key][0];
   return {
@@ -27,9 +28,12 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async (_, { rejec
 });
 
 export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, { rejectWithValue, dispatch }) => {
-  console.log('requestData', requestData);
+  // prettier-ignore
   const {
-    item_id: itemId, title, author, category,
+    item_id: itemId,
+    title,
+    author,
+    category,
   } = requestData;
   try {
     await axios.post(
@@ -54,46 +58,55 @@ export const addBookAPI = createAsyncThunk('books/addBook', async (requestData, 
   }
 });
 
+export const removeBookAPI = createAsyncThunk(
+  'books/removeBook',
+  async (requestData, { rejectWithValue, dispatch }) => {
+    try {
+      await axios.delete(url + requestData);
+      dispatch(fetchBooks());
+      return 'Removed';
+    } catch (error) {
+      return rejectWithValue(error.response);
+    }
+  },
+);
+
 const BooksSlice = createSlice({
   name: 'books',
   initialState,
-  reducers: {
-    // addBook: (store, action) => {
-    //   console.log(`store.books: ${store.books}`);
-    //   store.books.push(action.payload);
-    // },
-    // removeBook: (store, action) => {
-    //   const id = action.payload;
-    //   store.books = store.books.filter((book) => book.id !== id);
-    // },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchBooks.pending, (store) => {
         store.isLoading = true;
       })
       .addCase(fetchBooks.fulfilled, (store, action) => {
-        store.isLoading = false;
-        console.log(`action.payload in fetchBooks.fulfilled: ${JSON.stringify(action.payload)}`);
         const bookData = cleanData(action.payload);
-        console.log(`processed bookData: ${bookData}`);
         store.books = bookData;
+        store.isLoading = false;
       })
       .addCase(fetchBooks.rejected, (store, action) => {
-        store.isLoading = false;
         store.error = action.payload;
+        store.isLoading = false;
       })
       .addCase(addBookAPI.pending, (store) => {
         store.isLoading = true;
       })
-      .addCase(addBookAPI.fulfilled, (store, action) => {
+      .addCase(addBookAPI.fulfilled, (store) => {
         store.isLoading = false;
-        const bookData = cleanData(action.payload);
-        store.books = bookData;
       })
       .addCase(addBookAPI.rejected, (store, action) => {
-        store.isLoading = false;
         store.error = action.payload;
+        store.isLoading = false;
+      })
+      .addCase(removeBookAPI.pending, (store) => {
+        store.isLoading = true;
+      })
+      .addCase(removeBookAPI.fulfilled, (store) => {
+        store.isLoading = false;
+      })
+      .addCase(removeBookAPI.rejected, (store, action) => {
+        store.error = action.payload;
+        store.isLoading = false;
       });
   },
 });

@@ -13,6 +13,7 @@ function BookForm() {
   });
 
   const handleAddBook = () => {
+    console.log('Clicked on ADD BOOK'); // Add this line
     const newId = uuidv4();
     const bookWithId = {
       item_id: newId,
@@ -20,7 +21,6 @@ function BookForm() {
       author: newBook.author,
       category: 'Action',
     };
-    console.log('bookWithId:', bookWithId);
     dispatch(addBookAPI(bookWithId));
     setNewBook({
       item_id: '',
