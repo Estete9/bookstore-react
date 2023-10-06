@@ -14,7 +14,7 @@ function BookList() {
   }));
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading && !books.length) {
       dispatch(fetchBooks());
     }
   }, [books.length, dispatch, isLoading]);
