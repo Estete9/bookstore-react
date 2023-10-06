@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from '../styles/header.module.css';
+import profileBtnImg from '../assets/profile-btn.png';
 
 function Header() {
   const links = [
@@ -19,7 +20,9 @@ function Header() {
           </li>
         ))}
       </ul>
-      <a className={styles.profile} href="/">profile</a>
+      <a className={styles.profile} href="/">
+        <img alt="profile-button" src={profileBtnImg} />
+      </a>
     </div>
   );
 }

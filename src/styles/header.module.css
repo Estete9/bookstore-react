@@ -1,6 +1,11 @@
 .header {
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 5.938rem;
+  margin: 0 0 2.375rem;
+  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+  background-color: var(--white-two);
 }
 
 .profile {
@@ -15,8 +20,21 @@
   margin-left: 100px;
 }
 
+.logo {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #0290ff;
+}
+
+.profile img {
+  height: 2.813rem;
+}
+
 .navbarItem > * {
   color: #525252;
+  font-size: 0.813rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 .header * {
