@@ -1,9 +1,14 @@
 .bookItem {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: #fff;
   padding: 15px 20px;
+}
+
+.bookInfoSection {
+  margin-left: 1.688rem;
+  margin-right: auto;
 }
 
 .percentagesSection {
@@ -19,8 +24,9 @@
 
 .bookBtnList {
   display: flex;
-  gap: 0.938rem;
+  gap: 0.6rem;
   margin-top: 20px;
+  height: 1.5rem;
 }
 
 .bookTitle {
@@ -108,4 +114,16 @@
   padding: 0.438rem 1.188rem 0.5rem 1.375rem;
   margin-top: 1.438rem;
   border-radius: 3px;
+}
+
+.bookItem > .formSeparatorVert {
+  align-self: center;
+  border-left: 1px solid #e8e8e8;
+  height: 4.375rem;
+  margin-left: 5rem;
+  margin-right: 3.7rem;
+}
+
+.progressSection {
+  margin-right: 9.2rem;
 }

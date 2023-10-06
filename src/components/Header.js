@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styles from '../styles/header.module.css';
-import profileBtnImg from '../assets/profile-btn.png';
+import profileBtnImg from '../assets/profile-btn2.png';
 
 function Header() {
   const links = [

@@ -1,5 +1,6 @@
 .bookListWrapper {
-  width: 100%;
+  margin-left: 6.25rem;
+  margin-right: 6.25rem;
 }
 
 .bookList {
