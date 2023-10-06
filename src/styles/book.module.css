@@ -31,7 +31,7 @@
 
 .bookTitle {
   color: #121212;
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 1.375rem;
   font-weight: bold;
   margin-top: 8px;
@@ -50,7 +50,7 @@
 
 .bookAuthor,
 .bookBtn {
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
   color: #4386bf;
@@ -64,7 +64,7 @@
   border: none;
   cursor: pointer;
   background-color: transparent;
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 0.875rem;
   font-weight: 300;
 }
@@ -91,20 +91,20 @@
 .progressTitle {
   margin: 0.063rem;
   opacity: 0.5;
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 0.813rem;
   font-weight: 300;
 }
 
 .chapter {
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 1rem;
   font-weight: 300;
   margin: 0.438rem;
 }
 
 .progressUpdateBtn {
-  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-size: 0.813rem;
   color: #fff;
   font-weight: 300;
