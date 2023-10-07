@@ -33,7 +33,7 @@ function Book({ id, title, author }) {
       <div className={styles.formSeparatorVert} />
       <div className={styles.progressSection}>
         <h3 className={styles.progressTitle}>CURRENT CHAPTER</h3>
-        <h3 className={styles.chapter}>CHAPTER 7</h3>
+        <h3 className={styles.chapter}>Chapter 7</h3>
         <button className={styles.progressUpdateBtn} type="button">
           UPDATE PROGRESS
         </button>
