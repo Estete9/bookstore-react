@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700|Roboto+Slab:400,700');
+
 * {
   margin: 0;
   padding: 0;
@@ -12,11 +14,19 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  padding: 20px;
 }
 
 .formSeparator {
   align-self: center;
-  border-top: 1px solid #000;
-  width: 92%;
+  border-top: 1px solid #e8e8e8;
+  width: calc(100% - 12.5rem);
+}
+
+body {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+#root {
+  height: inherit;
 }

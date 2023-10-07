@@ -39,8 +39,8 @@ function BookList() {
   }
 
   return (
-    <div className={styles.bookList}>
-      <ul>
+    <div className={styles.bookListWrapper}>
+      <ul className={styles.bookList}>
         {books.map((book) => (
           <Book key={uuidv4()} id={book.id} title={book.title} author={book.author} />
         ))}

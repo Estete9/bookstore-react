@@ -1,10 +1,147 @@
 .bookItem {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  background-color: #fff;
+  padding-top: 2rem;
+  padding-bottom: 1.625rem;
+  border: solid 1px #e8e8e8;
+}
+
+.bookInfoSection {
+  margin-left: 2rem;
 }
 
 .percentagesSection {
   display: flex;
+  align-items: center;
+  margin-left: 28%;
+  width: 15rem;
+  gap: 1.3rem;
+}
+
+.progressSection {
+  margin-right: 12%;
+}
+
+.formSeparatorVert {
+  align-self: center;
+  border-left: 1px solid #e8e8e8;
+  height: 30px;
+}
+
+.bookBtnList {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 20px;
+  height: 1.5rem;
+}
+
+.bookTitle {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #121212;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 8px;
+  letter-spacing: -0.2px;
+}
+
+.bookGenre {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #121212;
+  opacity: 0.5;
+}
+
+.percentageImg {
+  height: 6.5rem;
+}
+
+.bookAuthor,
+.bookBtn {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  color: #4386bf;
+}
+
+.bookAuthor {
+  margin-top: 5px;
+  font-size: 1.1rem;
+}
+
+.bookBtn {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+.percentage {
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+}
+
+.completed {
+  opacity: 0.5;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+.progressTitle {
+  margin: 0.063rem 0;
+  opacity: 0.5;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.chapter {
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0.438rem 0;
+}
+
+.progressUpdateBtn {
+  width: 14rem;
+  height: 2.4rem;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  color: #fff;
+  font-weight: 300;
+  background-color: #0290ff;
+  border: none;
+  cursor: pointer;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  margin-top: 1rem;
+  border-radius: 3px;
+}
+
+.bookItem > .formSeparatorVert {
+  align-self: center;
+  border-left: 1px solid #e8e8e8;
+  height: 4.375rem;
+  margin-left: 5rem;
+  margin-right: 3.7rem;
+}
+
+.percentagesSection > div {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }

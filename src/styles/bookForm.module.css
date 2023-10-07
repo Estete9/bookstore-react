@@ -1,8 +1,11 @@
 .formWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   padding: 20px;
   gap: 20px;
+  margin-left: 7.7rem;
+  margin-right: 7.7rem;
 }
 
 .bookTitleInput {
@@ -11,4 +14,39 @@
 
 .bookAuthorInput {
   flex: 1;
+}
+
+.formTitle {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #888888;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 2.125rem;
+  height: 2.813rem;
+}
+
+.inputs > input {
+  border: none;
+  padding: 0.813rem 1.063rem;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.addBookBtn {
+  height: 2.813rem;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 0.813rem;
+  color: #fff;
+  background-color: #0290ff;
+  border: none;
+  cursor: pointer;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border-radius: 3px;
 }
